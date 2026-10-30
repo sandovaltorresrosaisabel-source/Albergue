@@ -1,0 +1,53 @@
+﻿@using System.Text.Json
+@model List<JsonElement>
+@{
+    ViewData["Title"] = "Mis solicitudes";
+
+    string Texto(JsonElement s, string campo) =>
+        s.TryGetProperty(campo, out var v) ? (v.ToString() ?? "") : "";
+
+    string Fecha(JsonElement s)
+    {
+        var t = Texto(s, "fechaSolicitud");
+        return DateTime.TryParse(t, out var f) ? f.ToString("dd/MM/yyyy HH:mm") : t;
+    }
+
+    string ClaseEstado(string estado) => estado switch
+    {
+        "Aprobada" => "bg-success",
+        "Rechazada" => "bg-danger",
+        _ => "bg-warning text-dark"
+    };
+}
+
+<div class="d-flex justify-content-between align-items-center mb-3">
+    <h2>Mis solicitudes</h2>
+    <a class="btn btn-sm btn-outline-secondary" asp-controller="Animales" asp-action="Index">Volver a los animales</a>
+</div>
+
+@if (!Model.Any())
+{
+    <p class="texto-intro">Aún no has enviado ninguna solicitud.</p>
+}
+else
+{
+    <div class="table-responsive">
+        <table class="table table-striped align-middle">
+            <thead>
+                <tr><th>N.º</th><th>Animal</th><th>Fecha</th><th>Estado</th></tr>
+            </thead>
+            <tbody>
+                @foreach (var s in Model)
+                {
+                    var estado = Texto(s, "estado");
+                    <tr>
+                        <td>@Texto(s, "idSolicitud")</td>
+                        <td>@Texto(s, "animal")</td>
+                        <td>@Fecha(s)</td>
+                        <td><span class="badge @ClaseEstado(estado)">@estado</span></td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+}

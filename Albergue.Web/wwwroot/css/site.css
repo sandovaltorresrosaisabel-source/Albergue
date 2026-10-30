@@ -1,0 +1,169 @@
+:root {
+    /* Colores */
+    --color-primario: #2B6A60;
+    --color-primario-oscuro: #1F5249;
+    --color-secundario: #D98B4A;
+    --color-fondo: #FAF3E8;
+    --color-superficie: #FFFFFF;
+    --color-texto: #2E2A26;
+    --color-texto-suave: #7A6A5F;
+    --color-borde: #EADFCF;
+    /* Formas */
+    --radio: 16px;
+    --radio-pequeno: 10px;
+    --sombra: 0 4px 14px rgba(61, 44, 35, 0.08);
+    /* Tipografía */
+    --fuente-titulos: 'Fredoka', sans-serif;
+    --fuente-texto: 'Nunito', sans-serif;
+    /* Sobrescribir variables de Bootstrap */
+    --bs-body-bg: var(--color-fondo);
+    --bs-body-color: var(--color-texto);
+    --bs-body-font-family: var(--fuente-texto);
+    --bs-link-color: var(--color-primario);
+    --bs-link-hover-color: var(--color-primario-oscuro);
+}
+
+html {
+    font-size: 16px;
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+    background-color: var(--color-fondo);
+    color: var(--color-texto);
+    font-family: var(--fuente-texto);
+    margin-bottom: 60px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--fuente-titulos);
+    font-weight: 600;
+    color: var(--color-texto);
+}
+
+/* Botones */
+.btn {
+    border-radius: 50px;
+    padding: 0.5rem 1.4rem;
+    font-weight: 700;
+}
+
+.btn-primary {
+    --bs-btn-bg: var(--color-primario);
+    --bs-btn-border-color: var(--color-primario);
+    --bs-btn-hover-bg: var(--color-primario-oscuro);
+    --bs-btn-hover-border-color: var(--color-primario-oscuro);
+    --bs-btn-active-bg: var(--color-primario-oscuro);
+    --bs-btn-active-border-color: var(--color-primario-oscuro);
+    --bs-btn-focus-shadow-rgb: 224, 122, 63;
+}
+
+/* Campos de formulario */
+.form-control,
+.form-select {
+    border-radius: var(--radio-pequeno);
+    border-color: var(--color-borde);
+    background-color: var(--color-superficie);
+}
+
+    .form-control:focus,
+    .form-select:focus {
+        border-color: var(--color-primario);
+        box-shadow: 0 0 0 0.2rem rgba(224, 122, 63, 0.2);
+    }
+
+/* Etiqueta de estado "Disponible" en verde salvia */
+.badge.bg-success {
+    background-color: var(--color-secundario) !important;
+    border-radius: 50px;
+}
+.btn-primary {
+    background-color: var(--color-primario);
+    border-color: var(--color-primario);
+    color: #fff;
+}
+
+    .btn-primary:hover,
+    .btn-primary:focus,
+    .btn-primary:active {
+        background-color: var(--color-primario-oscuro) !important;
+        border-color: var(--color-primario-oscuro) !important;
+        color: #fff;
+    }
+/* Que el pie quede siempre abajo */
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    margin-bottom: 0;
+}
+
+main {
+    flex: 1;
+}
+
+/* Barra de navegación */
+.navbar-renacer {
+    background-color: var(--color-superficie);
+    border-bottom: 3px solid var(--color-secundario);
+    padding: 0.75rem 0;
+    margin-bottom: 1.5rem;
+}
+
+    .navbar-renacer .navbar-brand {
+        font-family: var(--fuente-titulos);
+        font-size: 1.6rem;
+        font-weight: 600;
+        color: var(--color-primario);
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+    }
+
+        .navbar-renacer .navbar-brand i {
+            color: var(--color-secundario);
+        }
+
+    .navbar-renacer .nav-link {
+        color: var(--color-texto);
+        font-weight: 700;
+        padding: 0.5rem 1rem;
+        border-radius: 50px;
+        transition: background-color 0.2s, color 0.2s;
+    }
+
+        .navbar-renacer .nav-link:hover {
+            background-color: var(--color-fondo);
+            color: var(--color-primario);
+        }
+
+/* Pie de página */
+.pie-renacer {
+    background-color: var(--color-primario);
+    color: #fff;
+    padding: 2rem 0;
+    margin-top: 3rem;
+}
+
+    .pie-renacer h5 {
+        color: #fff;
+        margin-bottom: 0.25rem;
+    }
+
+        .pie-renacer h5 i {
+            color: var(--color-secundario);
+        }
+
+    .pie-renacer .lema {
+        font-style: italic;
+        opacity: 0.9;
+    }
+
+    .pie-renacer .valores {
+        font-weight: 600;
+    }
+
+    .pie-renacer small {
+        opacity: 0.75;
+    }
